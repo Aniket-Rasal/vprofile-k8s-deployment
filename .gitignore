@@ -1,0 +1,6 @@
+target/
+*.log
+*.tar
+*.jar
+*.war
+node_modules/

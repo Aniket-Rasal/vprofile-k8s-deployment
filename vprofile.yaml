@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vprofile
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vprofile
+  template:
+    metadata:
+      labels:
+        app: vprofile
+    spec:
+      containers:
+      - name: vprofile
+        image: vprofile-app
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DB_HOST
+          value: mysql-service
+        - name: RMQ_HOST
+          value: rabbitmq-service
+        - name: MEMCACHED_HOST
+          value: memcached-service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vprofile-service
+spec:
+  selector:
+    app: vprofile
+  ports:
+    - port: 80
+      targetPort: 8080
