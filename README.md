@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Prerequisites
 #
 - JDK 17 or 21
@@ -70,5 +70,4 @@ Application successfully deployed and accessible via browser.
 👨‍💻 Author
 
 Aniket Rasal
-=========================
->>>>>>> 48320334878bb83569fbbb45c57713e59de6bd90
+
